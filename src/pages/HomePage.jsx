@@ -29,7 +29,7 @@ function HomePage() {
   if (error) return <p style={{ padding: '2rem', color: 'red' }}>Error: {error}</p>
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif' }}>
+    <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', background: '#ffffff', minHeight: '100vh' }}>
       <h1>The Green Hub</h1>
       <p>Eco-friendly products, {products.length} available</p>
 

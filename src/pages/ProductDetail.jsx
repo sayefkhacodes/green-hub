@@ -32,14 +32,14 @@ function ProductDetail() {
   if (!product) return <p style={{ padding: '2rem' }}>Product not found.</p>
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', maxWidth: '1000px', margin: '0 auto' }}>
+    <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', maxWidth: '1200px', background: '#ffffff', margin: '0 auto' }}>
       <Link to="/" style={{ color: '#2a7a3a', textDecoration: 'none', fontSize: '0.875rem' }}>
         ← Back to all products
       </Link>
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
+        gridTemplateColumns: '1.4fr 1fr',
         gap: '3rem',
         marginTop: '1.5rem',
         alignItems: 'start'
