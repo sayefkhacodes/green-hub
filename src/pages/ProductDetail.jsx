@@ -65,7 +65,7 @@ function ProductDetail() {
             {product.categories?.name}
           </p>
 
-          <h1 style={{ margin: '0 0 0.5rem 0', lineHeight: 1.2, fontSize: '2rem' }}>{product.name}</h1>
+          <h1 style={{ margin: '0 0 0.5rem 0', lineHeight: 1.2, fontSize: '2rem', color: '#111' }}>{product.name}</h1>
 
           <p style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: '1rem 0' }}>
             £{product.price}
