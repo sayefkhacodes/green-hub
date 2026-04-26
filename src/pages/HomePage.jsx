@@ -30,20 +30,21 @@ function HomePage() {
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', background: '#ffffff', minHeight: '100vh' }}>
-      
+
       <p>Eco-friendly products, {products.length} available</p>
 
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
         gap: '1.5rem',
-        marginTop: '2rem'
+        marginTop: '2rem',
+        alignItems: 'stretch'
       }}>
         {products.map(product => (
           <Link
             key={product.id}
             to={`/product/${product.id}`}
-            style={{ textDecoration: 'none', color: 'inherit' }}
+            style={{ textDecoration: 'none', color: 'inherit', display: 'flex' }}
           >
             <div style={{
               border: '1px solid #ddd',
@@ -51,7 +52,10 @@ function HomePage() {
               padding: '1rem',
               background: '#fff',
               cursor: 'pointer',
-              transition: 'transform 0.15s, box-shadow 0.15s'
+              transition: 'transform 0.15s, box-shadow 0.15s',
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'column'
             }}
             onMouseEnter={e => {
               e.currentTarget.style.transform = 'translateY(-2px)'
@@ -71,7 +75,7 @@ function HomePage() {
                   borderRadius: '4px'
                 }}
               />
-              <h3 style={{ margin: '0.75rem 0 0.25rem' }}>{product.name}</h3>
+              <h3 style={{ margin: '0.75rem 0 0.25rem', minHeight: '3rem', lineHeight: 1.3 }}>{product.name}</h3>
               <p style={{ margin: '0.25rem 0', color: '#555' }}>£{product.price}</p>
               <p style={{ margin: '0.25rem 0', fontSize: '0.875rem' }}>
                 Sustainability: {product.sustainability_score}/10
