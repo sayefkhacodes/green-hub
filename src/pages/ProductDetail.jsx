@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
+import { useCart } from '../context/CartContext'
 
 function ProductDetail() {
   const { id } = useParams()
+  const navigate = useNavigate()
+  const { addItem } = useCart()
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -105,7 +108,10 @@ function ProductDetail() {
               fontSize: '1rem',
               cursor: 'pointer'
             }}
-            onClick={() => alert('Cart coming soon!')}
+            onClick={() => {
+              addItem(product)
+              navigate('/cart')
+            }}
           >
             Add to Cart
           </button>
