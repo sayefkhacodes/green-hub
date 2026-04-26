@@ -1,6 +1,33 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 function Navbar() {
+  const { user, signOut } = useAuth()
+  const navigate = useNavigate()
+
+  const handleSignOut = async () => {
+    await signOut()
+    navigate('/')
+  }
+
+  const linkStyle = {
+    textDecoration: 'none',
+    color: '#333',
+    fontSize: '0.95rem'
+  }
+
+  const buttonLinkStyle = {
+    textDecoration: 'none',
+    color: '#ffffff',
+    background: '#2a7a3a',
+    padding: '0.5rem 1rem',
+    borderRadius: '6px',
+    fontSize: '0.95rem',
+    border: 'none',
+    cursor: 'pointer',
+    fontFamily: 'inherit'
+  }
+
   return (
     <nav style={{
       display: 'flex',
@@ -31,39 +58,23 @@ function Navbar() {
       </Link>
 
       <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-        <Link
-          to="/"
-          style={{
-            textDecoration: 'none',
-            color: '#333',
-            fontSize: '0.95rem'
-          }}
-        >
-          Shop
-        </Link>
-        <Link
-          to="/login"
-          style={{
-            textDecoration: 'none',
-            color: '#333',
-            fontSize: '0.95rem'
-          }}
-        >
-          Login
-        </Link>
-        <Link
-          to="/signup"
-          style={{
-            textDecoration: 'none',
-            color: '#ffffff',
-            background: '#2a7a3a',
-            padding: '0.5rem 1rem',
-            borderRadius: '6px',
-            fontSize: '0.95rem'
-          }}
-        >
-          Sign Up
-        </Link>
+        <Link to="/" style={linkStyle}>Shop</Link>
+
+        {user ? (
+          <>
+            <span style={{ fontSize: '0.875rem', color: '#555' }}>
+              {user.email}
+            </span>
+            <button onClick={handleSignOut} style={buttonLinkStyle}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" style={linkStyle}>Login</Link>
+            <Link to="/signup" style={buttonLinkStyle}>Sign Up</Link>
+          </>
+        )}
       </div>
     </nav>
   )
