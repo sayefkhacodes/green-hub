@@ -10,6 +10,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
     async function fetchProduct() {
@@ -40,16 +41,12 @@ function ProductDetail() {
         ← Back to all products
       </Link>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1.4fr 1fr',
-        gap: '3rem',
-        marginTop: '1.5rem',
-        alignItems: 'start'
-      }}>
+      <div className="product-detail-grid">
         <img
           src={product.image_url}
           alt={product.name}
+          data-loaded={imageLoaded}
+          onLoad={() => setImageLoaded(true)}
           style={{
             width: '100%',
             borderRadius: '8px',
@@ -68,7 +65,7 @@ function ProductDetail() {
             {product.categories?.name}
           </p>
 
-          <h1 style={{ margin: '0 0 0.5rem 0', lineHeight: 1.2, fontSize: '2rem', color: '#111' }}>{product.name}</h1>
+          <h1 style={{ margin: '0 0 0.5rem 0', fontSize: '2rem' }}>{product.name}</h1>
 
           <p style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: '1rem 0' }}>
             £{product.price}
