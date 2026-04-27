@@ -7,6 +7,8 @@ import ProductDetail from './pages/ProductDetail'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import CartPage from './pages/CartPage'
+import CheckoutPage from './pages/CheckoutPage'
+import OrderConfirmation from './pages/OrderConfirmation'
 import './App.css'
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/order-confirmation" element={<OrderConfirmation />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>
