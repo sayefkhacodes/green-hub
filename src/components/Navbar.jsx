@@ -1,8 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useCart } from '../context/CartContext'
 
 function Navbar() {
   const { user, signOut } = useAuth()
+  const { totalItems } = useCart()
   const navigate = useNavigate()
 
   const handleSignOut = async () => {
@@ -60,8 +62,33 @@ function Navbar() {
       <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
         <Link to="/" style={linkStyle}>Shop</Link>
 
+        <Link to="/cart" style={{ ...linkStyle, position: 'relative' }}>
+          Cart
+          {totalItems > 0 && (
+            <span style={{
+              position: 'absolute',
+              top: '-8px',
+              right: '-14px',
+              background: '#2a7a3a',
+              color: '#fff',
+              borderRadius: '999px',
+              padding: '0 6px',
+              fontSize: '0.7rem',
+              fontWeight: 'bold',
+              minWidth: '18px',
+              height: '18px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              {totalItems}
+            </span>
+          )}
+        </Link>
+
         {user ? (
           <>
+            <Link to="/dashboard" style={linkStyle}>Dashboard</Link>
             <span style={{ fontSize: '0.875rem', color: '#555' }}>
               {user.email}
             </span>

@@ -9,6 +9,7 @@ import SignUpPage from './pages/SignUpPage'
 import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
 import OrderConfirmation from './pages/OrderConfirmation'
+import DashboardPage from './pages/DashboardPage'
 import './App.css'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/order-confirmation" element={<OrderConfirmation />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>
