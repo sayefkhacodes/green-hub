@@ -32,4 +32,4 @@ All notable changes to The Green Hub project are documented here. The project fo
 - User authentication via Supabase (signup, login, logout, persistent sessions)
 - Initial deployment to Vercel
 - Light theme enforced across the application
-- 
+
