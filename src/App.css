@@ -1,12 +1,12 @@
 :root {
   color-scheme: light only;
-  background: #ffffff;
+  background: #e8f5e9;
 }
 
 html, body, #root {
   margin: 0;
   padding: 0;
-  background: #ffffff !important;
+  background: #e8f5e9  !important;
   color: #111 !important;
   font-family: system-ui, -apple-system, sans-serif;
   width: 100%;
