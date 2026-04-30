@@ -29,7 +29,7 @@ function HomePage() {
   if (error) return <p style={{ padding: '2rem', color: 'red' }}>Error: {error}</p>
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', background: '#ffffff', minHeight: '100vh' }}>
+    <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', background: '#e8f5e9', minHeight: '100vh' }}>
 
       <p>Eco-friendly products, {products.length} available</p>
 
@@ -50,7 +50,7 @@ function HomePage() {
               border: '1px solid #ddd',
               borderRadius: '8px',
               padding: '1rem',
-              background: '#fff',
+              background: '#f1faf2',
               cursor: 'pointer',
               transition: 'transform 0.15s, box-shadow 0.15s',
               width: '100%',
