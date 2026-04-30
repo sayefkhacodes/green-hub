@@ -1,19 +1,17 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
-
 function HomePage() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-
+  const [search, setSearch] = useState('')
   useEffect(() => {
     async function fetchProducts() {
       const { data, error } = await supabase
         .from('products')
         .select('*')
         .order('name')
-
       if (error) {
         setError(error.message)
       } else {
@@ -21,18 +19,32 @@ function HomePage() {
       }
       setLoading(false)
     }
-
     fetchProducts()
   }, [])
-
+  const filtered = products.filter(p =>
+    p.name.toLowerCase().includes(search.toLowerCase())
+  )
   if (loading) return <p style={{ padding: '2rem' }}>Loading products...</p>
   if (error) return <p style={{ padding: '2rem', color: 'red' }}>Error: {error}</p>
-
   return (
     <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', background: '#e8f5e9', minHeight: '100vh' }}>
-
       <p>Eco-friendly products, {products.length} available</p>
-
+      <input
+        type="text"
+        placeholder="Search products..."
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+        style={{
+          padding: '0.6rem 1rem',
+          width: '100%',
+          maxWidth: '400px',
+          borderRadius: '8px',
+          border: '1px solid #ccc',
+          fontSize: '1rem',
+          marginTop: '1rem',
+          display: 'block'
+        }}
+      />
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
@@ -40,7 +52,7 @@ function HomePage() {
         marginTop: '2rem',
         alignItems: 'stretch'
       }}>
-        {products.map(product => (
+        {filtered.map(product => (
           <Link
             key={product.id}
             to={`/product/${product.id}`}
@@ -90,5 +102,4 @@ function HomePage() {
     </div>
   )
 }
-
 export default HomePage
