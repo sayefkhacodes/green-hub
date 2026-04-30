@@ -1,16 +1,32 @@
-# React + Vite
+# The Green Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An eco-friendly shopping platform that helps consumers discover sustainable products and track their environmental impact.
 
-Currently, two official plugins are available:
+## Project Information
+- *Team:* Binary
+- *Module:* CSI_5_SFE Software Engineering
+- *University:* London South Bank University
+- *Student IDs:* 4333533, 4236973, 4221288, 4332521
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Demo
+https://green-hub-ten.vercel.app/
 
-## React Compiler
+## Tech Stack
+- React 18 with Vite
+- Supabase (PostgreSQL + Auth + Row Level Security)
+- React Router
+- Deployed on Vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
+- Browse 16 eco-friendly products across 4 categories
+- View detailed sustainability information per product
+- User authentication (signup, login, logout)
+- Shopping cart with localStorage persistence
+- Mock checkout with order persistence
+- Personal dashboard tracking cumulative CO₂ saved
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Local Setup
+1. Clone the repository
+2. Run npm install
+3. Add a .env file with VITE_SUPABASE_URL and VITE_SUPABASE_KEY
+4. Run npm run dev
