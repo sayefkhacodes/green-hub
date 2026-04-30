@@ -41,7 +41,9 @@ function Navbar() {
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
+      boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+      flexWrap: 'wrap',
+      gap: '0.5rem'
     }}>
       <Link
         to="/"
@@ -59,8 +61,10 @@ function Navbar() {
         <span>The Green Hub</span>
       </Link>
 
-      <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center', flexWrap: 'wrap' }}>
         <Link to="/" style={linkStyle}>Shop</Link>
+        <Link to="/about" style={linkStyle}>About</Link>
+        <Link to="/faq" style={linkStyle}>FAQ</Link>
 
         <Link to="/cart" style={{ ...linkStyle, position: 'relative' }}>
           Cart
